@@ -1,0 +1,18 @@
+<!-- For movie Search bar -->
+<div class="col-md-6 col-sm-6 my-3 mx-auto">
+  <form >
+    <div class="input-group">
+      <input type="text" id="movieTitle" class="form-control"  [(ngModel)]="movieSearch" required pattern="[a-zA-Z0-9 ]+" required minlength="4" required maxlength="20" placeholder="Search movie..." name="movieTitle" #movieTitle="ngModel">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="submit" (click)="(movieTitle.invalid)?'' : searchMovie()"> <i class="fa fa-search"></i></button>
+      </span>
+    </div>
+ </form>
+</div>
+
+<!-- Display message when no result found for entered movie  -->
+<div class="jumbotron mt-3" *ngIf="searchResult">
+  <h3 class="display-4">No Result Found</h3>
+  <p class="lead">404 Not Found.</p>
+</div>
+
